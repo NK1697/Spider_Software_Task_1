@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SONIQ - Music Streaming</title>
+  <style>
+    /* Setting the background color and font for the whole page */
+    body {
+      background-color: #1a1a2e;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation bar at the top */
+    .navbar {
+      background-color: #16213e;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      color: #e94560;
+      margin: 0;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    /* Hero section - the big banner at the top */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #0f3460;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #aaaaaa;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      background-color: #e94560;
+      color: white;
+      padding: 15px 40px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background-color: #c73652;
+    }
+
+    /* Featured playlists section */
+    .featured {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .featured h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    /* Using flexbox to put the cards side by side */
+    .playlist-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #16213e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 180px;
+      text-align: center;
+    }
+
+    /* Album cover */
+    .album-cover {
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #aaaaaa;
+      margin: 0;
+    }
+
+    /* Features section */
+    .features {
+      background-color: #16213e;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .features-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .feature-box {
+      background-color: #0f3460;
+      border-radius: 10px;
+      padding: 30px 20px;
+      width: 200px;
+    }
+
+    .feature-box h3 {
+      font-size: 18px;
+      color: #e94560;
+    }
+
+    .feature-box p {
+      font-size: 14px;
+      color: #aaaaaa;
+    }
+
+    /* Pricing section */
+    .pricing {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .pricing h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .pricing-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .price-box {
+      background-color: #16213e;
+      border-radius: 10px;
+      padding: 30px 25px;
+      width: 220px;
+      border: 2px solid #333;
+    }
+
+    /* Highlighting the middle plan with a red border */
+    .price-box.popular {
+      border: 2px solid #e94560;
+    }
+
+    .price-box h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .price-box .price {
+      font-size: 40px;
+      font-weight: bold;
+      color: #e94560;
+    }
+
+    .price-box p {
+      font-size: 14px;
+      color: #aaaaaa;
+      margin: 8px 0;
+    }
+
+    .price-box button {
+      background-color: #e94560;
+      color: white;
+      padding: 12px 30px;
+      font-size: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .price-box button:hover {
+      background-color: #c73652;
+    }
+
+    /* Reviews section */
+    .reviews {
+      background-color: #16213e;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .reviews h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .review-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .review-box {
+      background-color: #0f3460;
+      border-radius: 10px;
+      padding: 25px;
+      width: 250px;
+      text-align: left;
+    }
+
+    .review-box p {
+      font-size: 14px;
+      color: #cccccc;
+      margin-bottom: 15px;
+    }
+
+    .review-box .name {
+      font-weight: bold;
+      color: white;
+    }
+
+    .stars {
+      color: #f5c518;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    /* Footer at the bottom */
+    footer {
+      background-color: #0f3460;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    footer input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      border: none;
+      font-size: 15px;
+    }
+
+    footer button {
+      background-color: #e94560;
+      color: white;
+      padding: 10px 20px;
+      font-size: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    footer .links {
+      margin-top: 25px;
+    }
+
+    footer .links a {
+      color: #aaaaaa;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 14px;
+    }
+
+    footer .links a:hover {
+      color: white;
+    }
+
+    footer .copyright {
+      margin-top: 20px;
+      color: #666666;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!--NAVBAR-->
+  <div class="navbar">
+    <h1>SONIQ</h1>
+    <div>
+      <a href="#featured">Music</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+  </div>
+
+  <!--HERO SECTION-->
+  <div class="hero">
+    <h2>Feel Every Frequency</h2>
+    <p>100 million songs. Zero ads. Stream music in crystal clear quality.</p>
+    <button>Start Listening Free</button>
+  </div>
+
+  <!--FEATURED PLAYLISTS-->
+  <div class="featured" id="featured">
+    <h2>Featured Playlists</h2>
+    <div class="playlist-cards">
+
+      <div class="card">
+        <div class="album-cover" style="background-color: #7c3aed;"></div>
+        <h3>After Dark</h3>
+        <p>34 songs</p>
+      </div>
+
+      <div class="card">
+        <div class="album-cover" style="background-color: #e94560;"></div>
+        <h3>Future Flux</h3>
+        <p>28 songs</p>
+      </div>
+
+      <div class="card">
+        <div class="album-cover" style="background-color: #0891b2;"></div>
+        <h3>Night Ride</h3>
+        <p>42 songs</p>
+      </div>
+
+      <div class="card">
+        <div class="album-cover" style="background-color: #059669;"></div>
+        <h3>Awake</h3>
+        <p>19 songs</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!--FEATURES-->
+  <div class="features" id="features">
+    <h2>Why Choose SONIQ?</h2>
+    <div class="features-grid">
+
+      <div class="feature-box">
+        <h3>🎵 Lossless Audio</h3>
+        <p>Hear music the way it was meant to be heard. Studio quality sound.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>🤖 AI Radio</h3>
+        <p>Describe a mood and we'll build the perfect playlist just for you.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>📱 Works Offline</h3>
+        <p>Download songs and listen without an internet connection.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>💻 All Devices</h3>
+        <p>Use SONIQ on your phone, laptop, tablet, and smart speakers.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!--PRICING-->
+  <div class="pricing" id="pricing">
+    <h2>Pick a Plan</h2>
+    <div class="pricing-cards">
+
+      <div class="price-box">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <p>per month</p>
+        <p>✓ 100M songs</p>
+        <p>✓ Standard quality</p>
+        <p>✗ Has ads</p>
+        <p>✗ No downloads</p>
+        <button>Get Started</button>
+      </div>
+
+      <div class="price-box popular">
+        <h3>⭐ Premium</h3>
+        <div class="price">$11.99</div>
+        <p>per month</p>
+        <p>✓ 100M songs</p>
+        <p>✓ Lossless quality</p>
+        <p>✓ No ads</p>
+        <p>✓ Offline downloads</p>
+        <button>Start Free Trial</button>
+      </div>
+
+      <div class="price-box">
+        <h3>Family</h3>
+        <div class="price">$17.99</div>
+        <p>per month</p>
+        <p>✓ 6 accounts</p>
+        <p>✓ All Premium features</p>
+        <p>✓ Kids mode</p>
+        <p>✓ Family playlist</p>
+        <button>Get Family Plan</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== REVIEWS ==================== -->
+  <div class="reviews" id="reviews">
+    <h2>What People Are Saying</h2>
+    <div class="review-cards">
+
+      <div class="review-box">
+        <div class="stars">★★★★★</div>
+        <p>"The sound quality is incredible. I can finally hear details in songs I've listened to for years."</p>
+        <span class="name">Jordan S. — Music Producer</span>
+      </div>
+
+      <div class="review-box">
+        <div class="stars">★★★★★</div>
+        <p>"The AI Radio feature is like having a DJ who knows exactly what I want to hear. Absolutely love it."</p>
+        <span class="name">Maya K. — Student</span>
+      </div>
+
+      <div class="review-box">
+        <div class="stars">★★★★★</div>
+        <p>"The family plan is great value. All six of us use it and everyone gets their own recommendations."</p>
+        <span class="name">David P. — Developer</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!--FOOTER-->
+  <footer>
+    <h3>Stay in the loop</h3>
+    <p style="color: #aaaaaa;">Get new music and feature updates straight to your inbox.</p>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+
+  </footer>
+
+</body>
+</html>
