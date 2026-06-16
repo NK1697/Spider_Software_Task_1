@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.box {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 25px;
+    border: 2px solid #333;
+    text-align: center;
+}
+
+h1 {
+    color: #b00020;
+}
+
+.smallText {
+    color: #555;
+}
+
+.gameArea {
+    margin-top: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 25px;
+    font-size: 16px;
+    background-color: #b00020;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #810018;
+}
+
+#errorText {
+    color: red;
+    min-height: 20px;
+}
+
+#resultBox {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #fff4f4;
+    border: 1px solid #b00020;
+}
+
+.hidden {
+    display: none;
+}
+
+.winner {
+    font-size: 20px;
+    font-weight: bold;
+}

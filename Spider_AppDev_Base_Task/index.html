@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The King of Diamonds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <h1>The King of Diamonds ♦</h1>
+        <p class="smallText">Choose a number from 0 to 100 and try to get closest to the Spider Number.</p>
+
+        <div class="gameArea">
+            <label for="userNumber">Your number</label>
+            <input type="number" id="userNumber" min="0" max="100" placeholder="Enter 0 - 100">
+            <button onclick="playRound()">Submit</button>
+            <p id="errorText"></p>
+        </div>
+
+        <div id="resultBox" class="hidden">
+            <h2>Round Result</h2>
+            <p>User chose: <span id="userChoice"></span></p>
+            <p>Bot chose: <span id="botChoice"></span></p>
+            <p>Average: <span id="averageNumber"></span></p>
+            <p>Spider Number: <span id="targetNumber"></span></p>
+            <p class="winner">Winner: <span id="winnerName"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
